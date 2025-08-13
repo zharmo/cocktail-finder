@@ -1,0 +1,12 @@
+<%- include('./partials/header', { title: 'Home - Cocktail Finder' }) %>
+
+<section class="card">
+  <h2>Search by drink name</h2>
+  <form action="/search" method="get" class="search-form">
+    <input type="text" name="name" placeholder="e.g. margarita" required />
+    <button type="submit">Search</button>
+  </form>
+  <div class="tip">Or try the <a href="/random">Random</a> button.</div>
+</section>
+
+<%- include('./partials/footer') %>

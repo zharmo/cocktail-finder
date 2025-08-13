@@ -1,0 +1,31 @@
+<%- include('./partials/header', { title: `Results - ${query || ''}` }) %>
+
+<section>
+  <h2>Results for: <%= query || '—' %></h2>
+  <% if (info) { %>
+    <p class="info"><%= info %></p>
+  <% } %>
+
+  <div class="grid">
+    <% drinks.forEach(function(d) { %>
+      <article class="card">
+        <img src="<%= d.image %>" alt="<%= d.name %>" />
+        <h3><%= d.name %></h3>
+
+        <h4>Ingredients</h4>
+        <ul>
+          <% d.ingredients.forEach(function(it) { %>
+            <li><%= it.measure ? it.measure + ' ' : '' %><%= it.ingredient %></li>
+          <% }) %>
+        </ul>
+
+        <h4>Instructions</h4>
+        <p><%= d.instructions %></p>
+      </article>
+    <% }) %>
+  </div>
+
+  <p><a href="/">← New search</a></p>
+</section>
+
+<%- include('./partials/footer') %>
